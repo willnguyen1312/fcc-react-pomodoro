@@ -1,3 +1,4 @@
+/* eslint react/jsx-no-target-blank: 0 */
 import React, { Component } from 'react'
 import moment from 'moment'
 import TimerHeader from './TimerHeader'
@@ -8,37 +9,28 @@ import TimerFooter from './TimerFooter'
 import * as timerStates from '../constants'
 
 class Timer extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      currentTime: moment.duration(25, 'minutes'),
-      baseTime: moment.duration(25, 'minutes'),
-      timerState: timerStates.NOT_SET,
-      timer: null,
-    }
-
-    this.setBaseTime = this.setBaseTime.bind(this)
-    this.startTimer = this.startTimer.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
-    this.reduceTimer = this.reduceTimer.bind(this)
+  state = {
+    currentTime: moment.duration(25, 'minutes'),
+    baseTime: moment.duration(25, 'minutes'),
+    timerState: timerStates.NOT_SET,
+    timer: null,
   }
 
-  setBaseTime(newBaseTime) {
+  setBaseTime = (newBaseTime) => {
     this.setState({
       baseTime: newBaseTime,
       currentTime: newBaseTime,
     })
   }
 
-  startTimer() {
+  startTimer = () => {
     this.setState({
       timerState: timerStates.RUNNING,
       timer: setInterval(this.reduceTimer, 1000),
     })
   }
 
-  stopTimer() {
+  stopTimer = () => {
     if (this.state.timer) {
       clearInterval(this.state.timer)
     }
@@ -50,7 +42,7 @@ class Timer extends Component {
     })
   }
 
-  reduceTimer() {
+  reduceTimer = () => {
     if (
       this.state.currentTime.get('hours') === 0 &&
       this.state.currentTime.get('minutes') === 0 &&
@@ -68,7 +60,7 @@ class Timer extends Component {
     })
   }
 
-  completeTimer() {
+  completeTimer = () => {
     if (this.state.timer) {
       clearInterval(this.state.timer)
     }

@@ -1,5 +1,4 @@
 import React from 'react'
-import * as timerStates from '../constants'
 
 const leftPad = (val) => {
   if (val < 10) return `0${val}`

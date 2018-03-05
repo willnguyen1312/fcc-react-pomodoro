@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 
 class TimerConfig extends Component {
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(ev) {
+  handleChange = (ev) => {
     const newBaseTime = this.props.baseTime
 
     if (ev.target.id === 'hours') {
