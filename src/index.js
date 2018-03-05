@@ -1,8 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/dist/css/bootstrap.css'
+import React from 'react'
+import { render } from 'react-dom'
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+global.jQuery = require('jquery')
+require('bootstrap')
+
+render(<App />, document.getElementById('root'))
+
+registerServiceWorker()
